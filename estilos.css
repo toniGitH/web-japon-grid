@@ -1,0 +1,541 @@
+/* ESTILOS CSS DISEÑADOS EN ORDEN "MOBILE-FIRST" */
+
+/*********************/
+/* ESTILOS GENERALES */
+/*********************/
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /*background-color: rgba(0, 0, 0, 0.938);*/
+    max-width: 1200px; /* Ancho máximo especificado en el enunciado del ejercicio*/
+    margin: 0 auto; /*Centramos el contenido horizontalmente*/
+    padding: 5px; /* Usamos el padding para dar espacio visual a la maqueta*/
+    color: black;
+    position: relative;
+    /*color: rgba(0, 0, 0, 0);*/ /*Transparentamos las fuentes pero no las eliminamos para que los divs tengan contenido*/
+}
+
+#container{
+    /*background-color: rgba(41, 41, 41, 0.527);*/
+    display: grid;
+    grid-template: auto/auto;
+    gap: 10px;
+}
+
+/*************/
+/* KEYFRAMES */
+/*************/
+
+@keyframes latidos {
+    from {transform: none;}
+    50% {transform: scale(1.1);}
+    to {transform: none;}
+}
+
+@keyframes latidosRS {
+    from {transform: none;}
+    50% {transform: scale(1.2);}
+    to {transform: none;}
+}
+
+/**********************/
+/* ESTILOS DEL HEADER */
+/**********************/
+
+header{
+    background-image: url(recursos/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 40% center;
+    padding: 15px 15px 0 15px;
+    display: grid;
+    grid-template: auto/auto;
+    gap: 15px;
+}
+
+#cajaNavegacion{
+    padding: 10px;
+    display: grid;
+    grid-template: 1fr/ repeat(3, 33%);
+    grid-template-areas:
+        "logo menu social";
+    gap: 10px;
+}
+
+    #cajaNavegacion div{
+        color: rgb(128,128,128);
+        text-align: center;
+        padding: 5px;
+    }
+
+    #cajaNavegacion .listaSocial{
+        list-style: none;
+        padding: 0;
+    }
+
+#logo{
+    grid-area: logo;
+    display: grid;
+    place-items: center start;
+}
+
+    #logo img{
+        max-width: 60px;
+        max-height: 57px;
+        animation: latidos 3s 2s infinite ease-in-out;
+        transform-origin: center;
+    }
+
+#menu{
+    grid-area: menu;
+    display: grid;
+    place-items: center;
+}
+
+    #botonMenu{
+        border: 2px solid rgb(128,128,128);
+        border-radius: 10px;
+    }
+
+    #botonMenu span{
+        font-size: 0.8em;
+        padding: 0 5px;
+    }
+
+    #botonMenu span i{
+        margin-right: 5px;
+    }
+
+    .elementoMenu a{
+        text-decoration: none;
+        color: rgb(128,128,128);
+    }
+
+    #menu i:not(.fa-bars){
+        margin-right: 10px;
+    }
+
+    #cerrarMenu{
+        display:none;
+    }
+
+    #menuDespl{
+        background-image: url(recursos/header.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 20px;
+        width: 95%;
+        list-style: none;
+        padding: 30px 0;
+        min-height: 85vh;
+        display: none;
+        grid-template: auto/auto;
+        gap: 15px;
+        justify-items: center;
+        position: absolute;
+        top: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99;
+    }
+
+    .elementoMenu{
+        font-size: 1.8em;
+        background-color: rgba(65, 61, 61, 0.9);
+        margin: 3px;
+        padding: 10px 0;
+        width: 70%;
+        align-self: center;
+        border-radius: 10px;
+        transition: 0s ease-in;
+        transition-property: transform;
+    }
+
+    .elementoMenu:hover{
+        background-color: rgb(65, 61, 61);
+        transform: scale(1.1);
+        color: rgb(240,128,128);
+    }
+
+    .elementoMenu:hover a{
+        color: rgb(240,128,128);
+    }
+
+#social{
+    grid-area: social;
+    display: grid;
+    place-content: center end;
+}
+
+    .listaSocial{
+        display: grid;
+        grid-template: 1fr / repeat(2, 1fr);
+    }
+
+        .elementoSocial{
+            display: inline-block;
+            color: rgb(128,128,128);
+        }
+
+        .listaSocial i{
+            font-size: 1.5em;
+            color: rgb(128,128,128);
+            transition: 0.2s ease-in;
+            transition-property: transform, color;
+        }
+
+        .listaSocial i:hover{
+            transform: scale(1.5);
+        }
+
+        #fbk{
+            padding-right: 15px;
+            animation: latidosRS 3s 2s infinite ease-in-out;
+        }
+
+        #twt{
+            animation: latidosRS 3s 3.5s infinite ease-in-out;
+        }
+
+        #fbk:hover, #twt:hover{
+            animation-play-state: paused;
+        }
+
+        #fbk:hover i, #twt:hover i{
+            color: rgb(240,128,128);
+        }
+        
+#cajaTitulo{
+    padding: 10px 0 20px 0;
+    margin: 0 15px;
+    display: grid;
+    grid-template: auto/auto;
+    background-color: rgba(0, 0, 0, 0.233);
+}
+
+    .titulo{
+        text-align: center;
+        padding: 5px;
+        color: white;
+        font-size: 3vw;
+        font-weight: bold;
+        animation: latidos 3s 2s infinite ease-in-out;
+        transform-origin: top;
+    }
+
+/********************/
+/* ESTILOS DEL MAIN */
+/********************/
+
+main{
+    display: grid;
+    grid-template: auto/auto;
+    gap: 5px;
+}
+
+section{
+    padding: 10px;
+    display: grid;
+    /*grid-template: auto/auto;*/
+    grid-template: auto/auto;
+    gap: 10px;
+}
+
+article{
+    background-color: rgb(245,241,241);
+    box-sizing: border-box;
+    padding: 10px;
+    display: grid;
+    grid-template: 1fr auto 1fr auto/auto;
+    gap: 5px;
+}
+
+article:last-of-type{
+    background-color: rgb(202, 202, 202);
+}
+
+.portadaArticle{
+    position: relative;
+    overflow: hidden;
+}
+
+.imgArticle{
+    object-fit: cover;
+    width:100%;
+    height:100%;
+}
+
+.fechaArticle{
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(255, 233, 107);
+    font-weight: 400;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    margin: 2px;
+    padding: 3px;
+}
+
+.tematicaArticle{
+    background-color: rgb(240,128,128);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 4vw;
+    color: white;
+    letter-spacing: 2.5px;
+    font-weight: 600;
+    padding: 20px 5px 5px 5px;
+}
+
+.textoColumnas{
+    color: rgb(71, 69, 69);
+    font-weight: 400;
+    column-count:2;
+    column-gap:5px;
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.leerMas{
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(99, 97, 97);
+    font-weight: 500;
+    text-align: start;
+    text-decoration: none;
+}
+
+.leerMas:hover{
+    color: rgb(240, 102, 102);
+}
+
+.descripcion{
+    width: 100%;
+    background-color: transparent;
+    color: rgb(32, 32, 32);
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+aside{
+    background-color: rgb(216,215,215);
+    padding: 10px;
+    display: grid;
+    grid-template: auto/auto;
+    gap: 15px;
+}
+
+.noticia{
+    background-color: rgb(245,241,241);
+    text-align: center;
+    padding: 10px;
+    display: grid;
+    grid-template: auto/auto;
+    gap: 5px;
+}
+
+.tituloNoticia{
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.textoNoticia{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 2px;
+}
+
+/**********************/
+/* ESTILOS DEL FOOTER */
+/**********************/
+
+footer{
+    background-color: rgb(216,215,215);
+    padding: 0 8px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template: auto/auto;
+    gap: 10px;
+}
+
+.pie{
+    background-color: rgb(230, 238, 238);
+    text-align: center;
+    padding: 5px;
+}
+
+/*********************************************************************************************/
+/********************************** M E D I A Q U E R I E S **********************************/
+/*********************************************************************************************/
+
+/* VERSIÓN TABLET (PARA PANTALLAS A PARTIR DE 500PX DE ANCHO) */
+
+@media only screen and (min-width: 500px){
+
+    /* ESTILOS DEL HEADER */
+
+    header{
+        background-position: top 50% center;
+    }
+
+    #cajaNavegacion{
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: "logo menu menu menu menu social";
+    }
+
+    #logo{
+        grid-area: logo;
+        place-items: start center;
+    }
+
+    #menu{
+        grid-area: menu;
+    }
+
+        #botonMenu{
+            font-size: 1.5em;
+        }
+
+        .elementoMenu{
+            font-size: 2.5em;
+        }
+
+    #social{
+        place-content: start center;
+    }
+
+    #cajaTitulo{
+        padding: 20px 30px 40px 30px;
+    }
+
+    .titulo{
+        font-size: 2.5vw;
+    }
+    
+    /* ESTILOS DEL MAIN */
+
+    main{
+        gap: 10px;
+    }
+
+    section{
+        background-color: rgb(216,215,215);
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    article:last-of-type:nth-of-type(odd) {
+        /*también valdría con last-child:ntn-child(odd)*/
+        grid-column: 1 / span 2; /* Si es impar, ocupa 2 columnas */
+    }
+
+    .tematicaArticle{
+        font-size: 3vw;
+    }
+    
+    .noticia{
+        padding: 5px;
+        gap: 10px;
+    }
+
+    /* ESTILOS DEL FOOTER */
+
+}
+
+/* VERSIÓN ESCRITORIO (PARA PANTALLAS A PARTIR DE 900PX DE ANCHO) */
+
+@media only screen and (min-width: 900px){
+
+    #cajaNavegacion{
+        grid-template: 1fr/ auto repeat(4, 1fr) auto;
+        grid-template-areas: "logo menu menu menu menu social";
+        gap: 10px;
+    }
+
+    #logo img{
+        max-width: 90px; /* Esto asegura que la imagen no sea más ancha que su contenedor */
+        max-height: 85px; /* Esto asegura que la imagen no sea más alta que su contenedor */
+        width: auto; /* Ajusta el ancho de la imagen automáticamente */
+        height: auto; /* Ajusta la altura de la imagen automáticamente */
+    }
+
+    #botonMenu, #cerrarMenu, #cerrarMenuDespl {
+        display: none;
+    }
+
+    #menuDespl{
+        background-image: unset;
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: static;
+        transform: unset;
+        font-size: 1.1em;
+        padding: 0;
+        min-height: unset;
+    }
+
+        .elementoMenu{
+            font-size: 1em;
+            background-color: unset;
+            margin: 0;
+            padding: 0;
+            width: unset;
+            transition: 0.2s ease-in;
+            transition-property: transform, color;
+            
+        }
+
+        .elementoMenu:hover, .elementoMenu:hover a{
+            background-color: unset;
+            transform: scale(1.2);
+        }
+
+        #menu i{
+            margin-right: 5px;
+        }
+
+    #social{
+        place-content: center center;
+    }
+
+    #cajaTitulo{
+        padding: 20px 0 40px 0;
+        margin: 0 40px;
+    }
+
+    .titulo{
+        font-size: 2vw;
+        font-weight: 300;
+    }
+
+    /* ESTILOS DEL MAIN */
+
+    main{
+        grid-template: repeat(6, 1fr);
+        grid-template-areas: "section section section section aside aside";
+    }
+
+    section{
+        grid-area: section;
+    }
+
+    .tematicaArticle{
+        font-size: 2vw;
+    }
+
+    aside{
+        background-color: rgb(216,215,215);
+        grid-area: aside;
+        align-content: start;
+        align-items: start;
+    }
+
+    .noticia{
+        background-color: rgb(245,241,241);
+        align-content: start;
+        align-items: start;
+    }
+    
+}
